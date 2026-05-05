@@ -91,11 +91,17 @@ export default function App() {
             </h1>
           </div>
           <button
-            onClick={() => setShowForm((s) => !s)}
-            className="bg-gradient-to-r from-rose-500 to-orange-400 hover:from-rose-600 hover:to-orange-500 text-white font-bold px-5 py-2.5 rounded-full text-sm tracking-wide transition-all duration-200 cursor-pointer"
-          >
-            {showForm ? "✕ Fechar" : "✦ Compartilhar fato"}
-          </button>
+  onClick={() => setShowForm((s) => !s)}
+  className="text-white font-bold px-5 py-2.5 rounded-full text-sm tracking-wide transition-all duration-200 cursor-pointer"
+  style={{
+    background: showForm
+      ? "rgba(233,69,96,0.2)"
+      : "linear-gradient(135deg, #ec4899, #22c55e)",
+    border: showForm ? "1px solid #ec4899" : "none",
+  }}
+>
+  {showForm ? "✕ Fechar" : "✦ Compartilhar fato"}
+</button>
         </header>
 
         {showForm && <FactForm onAdd={handleAddFact} />}
