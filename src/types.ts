@@ -2,7 +2,7 @@ export interface Fact {
     id: number;
     text: string;
     source: string;
-    category: Category;
+    category: string;
     votes_interesting: number;
     votes_mindblowing: number;
     votes_false: number;
