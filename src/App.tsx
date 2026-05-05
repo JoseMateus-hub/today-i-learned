@@ -104,33 +104,33 @@ export default function App() {
 
           {/* Sidebar */}
           <nav className="flex flex-col gap-2 min-w-40 shrink-0">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.value}
-                onClick={() => setActiveCategory(cat.value)}
-                className="text-left px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-150 cursor-pointer"
-                style={{
-                  background: activeCategory === cat.value ? cat.color : "rgba(255,255,255,0.06)",
-                  color: "#fff",
-                  opacity: activeCategory === cat.value ? 1 : 0.65,
-                }}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </nav>
+           {CATEGORIES.map((cat) => (
+  <button
+    key={cat.value}
+    onClick={() => setActiveCategory(cat.value)}
+    className="text-left px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-150 cursor-pointer text-white"
+    style={{
+      background: activeCategory === cat.value
+        ? `linear-gradient(135deg, ${cat.color}, ${cat.colorEnd ?? cat.color})`
+        : "rgba(255,255,255,0.06)",
+      opacity: activeCategory === cat.value ? 1 : 0.65,
+    }}
+  >
+    {cat.label}
+  </button>
+))}
+</nav>
 
-          {/* Facts list */}
-          <div className="flex-1 flex flex-col gap-3">
-            {filteredFacts.length === 0 ? (
-              <p className="text-slate-500 py-8">Nenhum fato nessa categoria ainda.</p>
-            ) : (
-              filteredFacts.map((fact) => (
-                <NewItem key={fact.id} fact={fact} onVote={handleVote} />
-              ))
-            )}
-          </div>
-
+{/* Facts list */}
+<div className="flex-1 flex flex-col gap-3">
+  {filteredFacts.length === 0 ? (
+    <p className="text-slate-500 py-8">Nenhum fato nessa categoria ainda.</p>
+  ) : (
+    filteredFacts.map((fact) => (
+      <NewItem key={fact.id} fact={fact} onVote={handleVote} />
+    ))
+  )}
+</div>
         </div>
       </div>
     </div>
