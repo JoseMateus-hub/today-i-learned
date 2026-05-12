@@ -115,12 +115,13 @@ export default function App() {
     key={cat.value}
     onClick={() => setActiveCategory(cat.value)}
     className="text-left px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-150 cursor-pointer text-white"
-    style={{
-      background: activeCategory === cat.value
-        ? `linear-gradient(135deg, ${cat.color}, ${cat.colorEnd ?? cat.color})`
-        : "rgba(255,255,255,0.06)",
-      opacity: activeCategory === cat.value ? 1 : 0.65,
-    }}
+   style={{
+  background: `linear-gradient(135deg, ${cat.color}, ${cat.colorEnd ?? cat.color})`,
+  opacity: 1,
+  boxShadow: activeCategory === cat.value ? `0 0 14px ${cat.color}99` : "none",
+  transform: activeCategory === cat.value ? "scale(1.04)" : "scale(1)",
+  transition: "all 0.15s ease",
+}}
   >
     {cat.label}
   </button>
